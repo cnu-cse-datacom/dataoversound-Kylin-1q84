@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import calsualcoding.reedsolomon.EncoderDecoder;
+import google.zxing.common.reedsolomon.ReedSolomonException;
 
 
 public class MainActivity extends AppCompatActivity implements ToneThread.ToneCallback {
@@ -98,8 +99,11 @@ public class MainActivity extends AppCompatActivity implements ToneThread.ToneCa
 
             @Override
             public void run() {
-
-                recv_tone.PreRequest();
+                try {
+                    recv_tone.PreRequest();
+                }
+                catch (Exception e) {
+                }
 
             }
         });
